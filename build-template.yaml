@@ -3,16 +3,16 @@ apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   annotations:
-    description: user-group-operator deploy
-  name: user-group-operator-build
+    description: openshift-user-reaper build
+  name: openshift-user-reaper-build
 
 parameters:
 - name: KOPF_S2I_IMAGE
   value: quay.io/redhat-cop/python-kopf-s2i:v1.36
 - name: GIT_REPO
-  value: https://github.com/rhpds/openshift-user-auth-tracker.git
+  value: https://github.com/rhpds/openshift-user-reaper.git
 - name: NAME
-  value: openshift-user-auth-tracker
+  value: openshift-user-reaper
 
 objects:
 - apiVersion: image.openshift.io/v1

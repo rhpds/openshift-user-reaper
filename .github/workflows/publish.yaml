@@ -9,7 +9,7 @@ on:
 jobs:
   publish:
     env:
-      IMAGE_NAME: openshift-user-auth-tracker
+      IMAGE_NAME: openshift-user-reaper
     runs-on: ubuntu-latest
     steps:
     - name: Checkout source
