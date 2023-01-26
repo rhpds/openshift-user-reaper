@@ -1,0 +1,49 @@
+namespace:
+  create: true
+  name:
+
+deploy: true
+
+image:
+  repository: quay.io/rhpds/openshift-user-reaper
+  pullPolicy: Always
+  tagOverride: ""
+
+checkInterval: 1h
+daysAfterLastLogin: 30
+
+# List of resources to check in the user namespace.
+# If any exist then the user delete is blocked.
+namespaceCheckResources:
+- plural: pods
+  version: v1
+- group: apps
+  plural: deployments
+  version: v1
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
