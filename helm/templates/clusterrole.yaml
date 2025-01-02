@@ -24,7 +24,6 @@ rules:
   - delete
 - apiGroups:
   - ""
-  attributeRestrictions: null
   resources:
   - namespaces
   verbs:
@@ -33,7 +32,6 @@ rules:
   - watch
 - apiGroups:
   - ""
-  attributeRestrictions: null
   resources:
   - events
   verbs:
@@ -43,7 +41,6 @@ rules:
 {{- range .Values.namespaceCheckResources }}
 - apiGroups:
   - {{ .group | default "" | quote }}
-  attributeRestrictions: null
   resources:
   - {{ .plural | quote }}
   verbs:
