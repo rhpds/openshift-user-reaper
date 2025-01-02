@@ -79,8 +79,8 @@ Create the name of the namespace to use
 Define the image to deploy
 */}}
 {{- define "openshiftUserReaper.image" -}}
-  {{- if eq .Values.image.tagOverride "-" -}}
-    {{- .Values.image.repository -}}
+  {{- if .Values.image.override -}}
+    {{- .Values.image.override -}}
   {{- else if .Values.image.tagOverride -}}
     {{- printf "%s:%s" .Values.image.repository .Values.image.tagOverride -}}
   {{- else -}}
